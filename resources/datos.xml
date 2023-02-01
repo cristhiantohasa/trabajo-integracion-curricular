@@ -1,5 +1,5 @@
 <root>
-    <datospersonales>
+    <persona>
         <cedula>1726264961</cedula>
         <nombres>ANDRES VLADIMIR</nombres>
         <apellidos>GARCIA CUVI</apellidos>
@@ -10,7 +10,7 @@
         <nacionalidad>ECUATORIANA</nacionalidad>
         <estadoCivil>SOLTERO</estadoCivil>
         <codigoDactilar>E3343V2242</codigoDactilar>
-    </datospersonales>
+    </persona>
     <contacto>
         <domicilio>PICHINCHA/QUITO/BICENTENARIO</domicilio>
         <callesDomicilio>CALLE 1 CALLE 2</callesDomicilio>
