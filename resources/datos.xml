@@ -1,0 +1,36 @@
+<root>
+    <datospersonales>
+        <cedula>1726264961</cedula>
+        <nombres>ANDRES VLADIMIR</nombres>
+        <apellidos>GARCIA CUVI</apellidos>
+        <sexo>HOMBRE</sexo>
+        <condicionCiudadano>CIUDADANO</condicionCiudadano>
+        <fechaNacimiento>1998-05-24</fechaNacimiento>
+        <lugarNacimiento>PICHINCHA/QUITO/BICENTENARIO</lugarNacimiento>
+        <nacionalidad>ECUATORIANA</nacionalidad>
+        <estadoCivil>SOLTERO</estadoCivil>
+        <codigoDactilar>E3343V2242</codigoDactilar>
+    </datospersonales>
+    <contacto>
+        <domicilio>PICHINCHA/QUITO/BICENTENARIO</domicilio>
+        <callesDomicilio>CALLE 1 CALLE 2</callesDomicilio>
+        <numeroCasa>MZ 23</numeroCasa>
+        <telefono>0992542291</telefono>
+        <correoElectronico>andres.garcia@epn.edu.ec</correoElectronico>
+    </contacto>
+    <datosPesonales>
+        <estadoAfiliado>ACTIVO</estadoAfiliado>
+    </datosPesonales>
+    <empleador>
+        <rucPatronal>1790659720001</rucPatronal>
+        <sector>OTROS</sector>
+        <razonSocial>COBISCORP ECUADOR S.A</razonSocial>
+    </empleador>
+    <historial>
+        <origen>HL</origen>
+        <periodoDesde>2018-09-01</periodoDesde>
+        <periodoHasta>2018-10-01</periodoHasta>
+        <imposiciones>0></imposiciones>
+        <dias>16</dias>
+    </historial>
+</root>
