@@ -3,6 +3,7 @@ from flask import Request
 import xmltodict
 import json
 import pyodbc
+import psycopg2
 
 app = Flask( __name__ )
 
@@ -41,33 +42,108 @@ def insertarDatos():
     telefono = jsonContacto['telefono']
     correoElectronico = jsonContacto['correoElectronico']
 
+    estadoAfiliado = jsonDatosPersonales['estadoAfiliado']
+    
+    rucPatronal = jsonEmpelador['rucPatronal']
+    sector = jsonEmpelador['sector']
+    razonSocial = jsonEmpelador['razonSocial']
+    
+    origen = jsonHistorial['origen']
+    periodoDesde = jsonHistorial['periodoDesde']
+    periodoHasta = jsonHistorial['periodoHasta']
+    imposiciones = jsonHistorial['imposiciones']
+    dias = jsonHistorial['dias']
+
     try:
         
-        connection = pyodbc.connect('DRIVER={SQL Server};SERVER=SERVER1;DATABASE=Registro_Civil_EPN;UID=sa;PWD=smile')
+        connection = pyodbc.connect(
+            'DRIVER={SQL Server};SERVER=SERVER1;DATABASE=Registro_Civil_EPN;UID=sa;PWD=smile'
+            )
         print("Conexión exitosa...")
 
-        qrRegistroCivil = 'EXEC sp_insertarDatos \'' + cedula + '\', \'' + nombres + '\', \'' + apellidos + '\', \'' + sexo + '\', \'' + condicionCiudadano + '\', \'' + fechaNacimiento + '\', \'' + lugarNacimiento + '\', \'' + nacionalidad + '\', \'' + estadoCivil + '\', \'' + codigoDactilar + '\', \'' + domicilio + '\', \'' + callesDomicilio + '\', \'' + numeroCasa + '\', \'' + telefono + '\', \'' + correoElectronico + '\''
-        print(qrRegistroCivil)
+        qrInsertRegistroCivil = 'EXEC [SERVER1].[Registro_Civil_EPN].[dbo].[sp_insertarDatosRegistroCivil] \'' + cedula + '\', \'' + nombres + '\', \'' + apellidos + '\', \'' + sexo + '\', \'' + condicionCiudadano + '\', \'' + fechaNacimiento + '\', \'' + lugarNacimiento + '\', \'' + nacionalidad + '\', \'' + estadoCivil + '\', \'' + codigoDactilar + '\', \'' + domicilio + '\', \'' + callesDomicilio + '\', \'' + numeroCasa + '\', \'' + telefono + '\', \'' + correoElectronico + '\''
+        print(qrInsertRegistroCivil)
 
         cursorInsert = connection.cursor()
 
-        cursorInsert.execute(qrRegistroCivil)
+        cursorInsert.execute(qrInsertRegistroCivil)
         cursorInsert.commit()
 
-    except Exception as ex:
-        print("Error durante la conexión: {}".format(ex))
-    finally:
-        connection.close()  # Se cerró la conexión a la BD.
-        print("La conexión ha finalizado.")
+        response = 'Insercion Registro Civil exitosa ' + cedula
 
-    return jsonDatos;
+    except Exception as ex:
+
+        print("Error durante la conexión: {}".format(ex))
+        response = 'Error de conexion Registro Civil'
+
+    finally:
+
+        connection.close()  # Se cerró la conexión a la BD.
+        print("La conexión Registro Civil ha finalizado.")
+
+    try:
+        
+        connection = pyodbc.connect(
+            'DRIVER={SQL Server};SERVER=SERVER2;DATABASE=IEES_EPN;UID=sa;PWD=smile'
+            )
+        print("Conexión exitosa...")
+        
+        qrInsertIEES = 'EXEC [SERVER2].[IEES_EPN].[dbo].[sp_insertarDatosIEES] \'' + cedula + '\', \'' + estadoAfiliado + '\', \'' + rucPatronal + '\', \'' + sector + '\', \'' + razonSocial + '\', \'' + origen + '\', \'' + periodoDesde + '\', \'' + periodoHasta + '\', ' + imposiciones + ', ' + dias
+        print(qrInsertIEES)
+
+        cursorInsert = connection.cursor()
+
+        cursorInsert.execute(qrInsertIEES)
+        cursorInsert.commit()
+
+        response = '\nInsercion IEES exitosa ' + cedula
+
+    except Exception as ex:
+
+        print("Error durante la conexión: {}".format(ex))
+        response = ' \nError de conexionen IEES'
+
+    finally:
+
+        connection.close()  # Se cerró la conexión a la BD.
+        print("La conexión IEES ha finalizado.")
+
+    return response;
 
 # Obtener Datos
 @app.route('/salvadatos/obtenerDatos', methods=["GET"])
 def obtenerDatos():
 
-    print("Get");
+    try:
+        
+        connection = psycopg2.connect(
+            host='localhost',
+            user='postgres',
+            password='smile',
+            database='Salva_Datos_EPN'
+        )
+        print("Conexión exitosa...")
 
-    return "Hola Mundo :D";
+        qrSelectSalvaDatos = 'SELECT * FROM v_obtenerDatos'
+        print(qrSelectSalvaDatos)
+
+        cursorSelect = connection.cursor()
+
+        cursorSelect.execute(qrSelectSalvaDatos)
+
+        rows = cursorSelect.fetchall()
+
+        response = rows
+
+    except Exception as ex:
+
+        print("Error durante la conexión: {}".format(ex))
+        response = 'Error de conexion'
+
+    finally:
+        connection.close()  # Se cerró la conexión a la BD.
+        print("La conexión ha finalizado.")
+
+    return response;
 
 app.run( debug = True );

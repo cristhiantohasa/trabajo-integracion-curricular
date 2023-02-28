@@ -22,15 +22,15 @@
         <estadoAfiliado>ACTIVO</estadoAfiliado>
     </datosPesonales>
     <empleador>
-        <rucPatronal>1790659720001</rucPatronal>
+        <rucPatronal>1792787289001</rucPatronal>
         <sector>OTROS</sector>
-        <razonSocial>COBISCORP ECUADOR S.A</razonSocial>
+        <razonSocial>CONSORCIO ALCANTARILLADOS</razonSocial>
     </empleador>
     <historial>
         <origen>HL</origen>
-        <periodoDesde>2018-09-01</periodoDesde>
-        <periodoHasta>2018-10-01</periodoHasta>
-        <imposiciones>0></imposiciones>
-        <dias>16</dias>
+        <periodoDesde>2014-08-01</periodoDesde>
+        <periodoHasta>2017-11-01</periodoHasta>
+        <imposiciones>5</imposiciones>
+        <dias>13</dias>
     </historial>
 </root>
