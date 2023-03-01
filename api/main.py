@@ -3,7 +3,6 @@ from flask import Request
 import xmltodict
 import json
 import pyodbc
-import psycopg2
 
 app = Flask( __name__ )
 
