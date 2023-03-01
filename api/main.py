@@ -115,16 +115,13 @@ def insertarDatos():
 def obtenerDatos():
 
     try:
-        
-        connection = psycopg2.connect(
-            host='localhost',
-            user='postgres',
-            password='smile',
-            database='Salva_Datos_EPN'
-        )
+
+        connection = pyodbc.connect(
+            'DRIVER={SQL Server};SERVER=SERVER1;DATABASE=Salva_Datos_EPN;UID=sa;PWD=smile'
+            )
         print("Conexión exitosa...")
 
-        qrSelectSalvaDatos = 'SELECT * FROM v_obtenerDatos'
+        qrSelectSalvaDatos = 'SELECT * FROM v_obtenerDatosNivelCinco'
         print(qrSelectSalvaDatos)
 
         cursorSelect = connection.cursor()
@@ -132,6 +129,9 @@ def obtenerDatos():
         cursorSelect.execute(qrSelectSalvaDatos)
 
         rows = cursorSelect.fetchall()
+
+        rows = [tuple(row) for row in rows]
+        rows = json.dumps(rows)
 
         response = rows
 
