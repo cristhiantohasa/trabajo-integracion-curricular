@@ -1,36 +1,36 @@
 <root>
     <persona>
-        <cedula>1726264961</cedula>
-        <nombres>ANDRES VLADIMIR</nombres>
-        <apellidos>GARCIA CUVI</apellidos>
+        <cedula>1726487893</cedula>
+        <nombres>CRISTHIAN FERNANDO</nombres>
+        <apellidos>TOHASA PASPUEZAN</apellidos>
         <sexo>HOMBRE</sexo>
         <condicionCiudadano>CIUDADANO</condicionCiudadano>
-        <fechaNacimiento>1998-05-24</fechaNacimiento>
-        <lugarNacimiento>PICHINCHA/QUITO/BICENTENARIO</lugarNacimiento>
+        <fechaNacimiento>1997-11-30</fechaNacimiento>
+        <lugarNacimiento>PICHINCHA/QUITO/SAN ROQUE</lugarNacimiento>
         <nacionalidad>ECUATORIANA</nacionalidad>
         <estadoCivil>SOLTERO</estadoCivil>
         <codigoDactilar>E3343V2242</codigoDactilar>
     </persona>
     <contacto>
         <domicilio>PICHINCHA/QUITO/BICENTENARIO</domicilio>
-        <callesDomicilio>CALLE 1 CALLE 2</callesDomicilio>
-        <numeroCasa>MZ 23</numeroCasa>
-        <telefono>0992542291</telefono>
-        <correoElectronico>andres.garcia@epn.edu.ec</correoElectronico>
+        <callesDomicilio>CALLE E CALLE A BUENAVENTURA</callesDomicilio>
+        <numeroCasa>MZ 853</numeroCasa>
+        <telefono>0939352978</telefono>
+        <correoElectronico>cristhian.tohasa@epn.edu.ec</correoElectronico>
     </contacto>
     <datosPesonales>
         <estadoAfiliado>ACTIVO</estadoAfiliado>
     </datosPesonales>
     <empleador>
-        <rucPatronal>1792787289001</rucPatronal>
+        <rucPatronal>1790659720001</rucPatronal>
         <sector>OTROS</sector>
-        <razonSocial>CONSORCIO ALCANTARILLADOS</razonSocial>
+        <razonSocial>COBISCORP ECUADOR S.A</razonSocial>
     </empleador>
     <historial>
         <origen>HL</origen>
-        <periodoDesde>2014-08-01</periodoDesde>
-        <periodoHasta>2017-11-01</periodoHasta>
-        <imposiciones>5</imposiciones>
-        <dias>13</dias>
+        <periodoDesde>2021-03-01</periodoDesde>
+        <periodoHasta>2023-01-01</periodoHasta>
+        <imposiciones>10</imposiciones>
+        <dias>9</dias>
     </historial>
 </root>
